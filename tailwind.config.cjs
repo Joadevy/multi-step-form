@@ -17,6 +17,9 @@ module.exports = {
       fontFamily: {
         ubuntu: ["Ubuntu", "sans"],
       },
+      backgroundImage: {
+        mobileHero: "url('./assets/images/bg-sidebar-mobile.svg')",
+      },
     },
   },
   plugins: [],
