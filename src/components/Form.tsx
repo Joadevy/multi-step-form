@@ -16,6 +16,7 @@ export const Form = () => {
     email: "",
     phone: "",
     plan: "",
+    price: "",
     planDuration: "",
     addsOn: [],
   });
@@ -75,6 +76,7 @@ export const Form = () => {
         <StepTwo
           handleFormData={handleInputData}
           nextStep={nextStep}
+          prevStep={prevStep}
           values={formData}
         />
       );

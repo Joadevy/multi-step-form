@@ -25,45 +25,67 @@ export const StepOne: FC<props> = ({ values, nextStep, handleFormData }) => {
 
   return (
     <div>
-      <StepHeader />
-      <div className="relative flex flex-col rounded-lg mx-5 my-24 shadow p-5 bg-white">
-        <header>
-          <h2>Personal info</h2>
-          <p>Please provide your name, email adress and phone number.</p>
+      <StepHeader active={1} steps={[1, 2, 3, 4]} />
+      <div className="flex flex-col rounded-xl mx-5 my-24 shadow p-8 bg-white">
+        <header className="flex flex-col gap-2">
+          <h2 className="font-bold text-3xl text-p-marine-blue">
+            Personal info
+          </h2>
+          <p className="text-n-cool-gray text-lg font-medium">
+            Please provide your name, email adress, and phone number.
+          </p>
         </header>
-        <form className="flex flex-col gap-2 mt-4" onSubmit={submitFormData}>
-          <label htmlFor="name">Name</label>
+        <form className="flex flex-col gap-4 mt-6" onSubmit={submitFormData}>
+          <label
+            className="text-p-marine-blue font-medium text-base flex flex-col gap-1"
+            htmlFor="name"
+          >
+            Name
+            <input
+              required
+              className="rounded-sm border-2 border-n-light-gray p-1"
+              defaultValue={values.name}
+              id="name"
+              placeholder="e.g. Stephen King"
+              type="text"
+              onChange={handleFormData("name")}
+            />
+          </label>
+
+          <label
+            className="text-p-marine-blue font-medium text-base flex flex-col gap-1"
+            htmlFor="email"
+          >
+            Email Address
+            <input
+              required
+              className="rounded-sm border-2 border-n-light-gray p-1"
+              defaultValue={values.email}
+              id="email"
+              placeholder="e.g. stephenking@lorem.com"
+              type="text"
+              onChange={handleFormData("email")}
+            />
+          </label>
+
+          <label
+            className="text-p-marine-blue font-medium text-base flex flex-col gap-1"
+            htmlFor="phone"
+          >
+            Phone Number
+            <input
+              required
+              className="rounded-sm border-2 border-n-light-gray p-1"
+              defaultValue={values.phone}
+              id="phone"
+              placeholder="e.g. +1 234 567 890"
+              type="text"
+              onChange={handleFormData("phone")}
+            />
+          </label>
+
           <input
-            required
-            className="rounded-sm border-2 border-n-light-gray p-1"
-            defaultValue={values.name}
-            id="name"
-            placeholder="e.g. Stephen King"
-            type="text"
-            onChange={handleFormData("name")}
-          />
-          <label htmlFor="email">Email Address</label>
-          <input
-            required
-            className="rounded-sm border-2 border-n-light-gray p-1"
-            defaultValue={values.email}
-            id="email"
-            placeholder="e.g. stephenking@lorem.com"
-            type="text"
-            onChange={handleFormData("email")}
-          />
-          <label htmlFor="phone">Phone Number</label>
-          <input
-            required
-            className="rounded-sm border-2 border-n-light-gray p-1"
-            defaultValue={values.phone}
-            id="phone"
-            placeholder="e.g. +1 234 567 890"
-            type="text"
-            onChange={handleFormData("phone")}
-          />
-          <input
-            className="mt-24 w-2/6 self-end rounded-lg px-2 py-3 bg-p-marine-blue text-white font-bold"
+            className="absolute z-20 bottom-4 right-6 w-3/12 rounded-md px-4 py-3 bg-p-marine-blue text-white font-bold cursor-pointer hover:opacity-50"
             type="submit"
             value={"Next Step"}
           />
