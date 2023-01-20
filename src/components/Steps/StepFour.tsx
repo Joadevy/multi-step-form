@@ -2,10 +2,10 @@ import { FC } from "react";
 
 type props = {
   values: any;
-  handleFormData: (_: any) => void;
+  handleUserData: (_: any) => void;
 };
 
-export const StepFour: FC<props> = ({ values, handleFormData }) => {
+export const StepFour: FC<props> = ({ values, handleUserData }) => {
   return (
     <div>
       Summary

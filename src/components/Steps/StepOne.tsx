@@ -5,10 +5,10 @@ import { StepHeader } from "./StepHeader";
 type props = {
   values: any;
   nextStep: () => void;
-  handleFormData: (_: any) => ChangeEventHandler;
+  handleUserData: (_: any) => ChangeEventHandler;
 };
 
-export const StepOne: FC<props> = ({ values, nextStep, handleFormData }) => {
+export const StepOne: FC<props> = ({ values, nextStep, handleUserData }) => {
   const [error, setError] = useState(false);
   const submitFormData = (e: any) => {
     e.preventDefault();
@@ -48,7 +48,7 @@ export const StepOne: FC<props> = ({ values, nextStep, handleFormData }) => {
               id="name"
               placeholder="e.g. Stephen King"
               type="text"
-              onChange={handleFormData("name")}
+              onChange={handleUserData("name")}
             />
           </label>
 
@@ -64,7 +64,7 @@ export const StepOne: FC<props> = ({ values, nextStep, handleFormData }) => {
               id="email"
               placeholder="e.g. stephenking@lorem.com"
               type="text"
-              onChange={handleFormData("email")}
+              onChange={handleUserData("email")}
             />
           </label>
 
@@ -80,7 +80,7 @@ export const StepOne: FC<props> = ({ values, nextStep, handleFormData }) => {
               id="phone"
               placeholder="e.g. +1 234 567 890"
               type="text"
-              onChange={handleFormData("phone")}
+              onChange={handleUserData("phone")}
             />
           </label>
 

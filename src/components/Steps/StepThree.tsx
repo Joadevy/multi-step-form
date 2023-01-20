@@ -3,10 +3,10 @@ import { FC } from "react";
 type props = {
   values: any;
   nextStep: () => void;
-  handleFormData: (_: any) => void;
+  handleUserData: (_: any) => void;
 };
 
-export const StepThree: FC<props> = ({ values, nextStep, handleFormData }) => {
+export const StepThree: FC<props> = ({ values, nextStep, handleUserData }) => {
   return (
     <div>
       Adds On!

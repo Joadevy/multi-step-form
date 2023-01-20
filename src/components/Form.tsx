@@ -2,22 +2,22 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { StepOne } from "./StepOne";
-import { StepTwo } from "./StepTwo";
-import { StepThree } from "./StepThree";
-import { StepFour } from "./StepFour";
+import { StepOne } from "./Steps/StepOne";
+import { StepTwo } from "./Steps/StepTwo";
+import { StepThree } from "./Steps/StepThree";
+import { StepFour } from "./Steps/StepFour";
 
 const steps = ["Personal info", "Select plan", "Adds on", "Summary"];
 
 export const Form = () => {
   const [activeStep, setActiveStep] = useState(1);
-  const [formData, setFormData] = useState({
+  const [userData, setUserData] = useState({
     name: "",
     email: "",
     phone: "",
     plan: "",
     price: "",
-    planDuration: "",
+    planDuration: "monthly",
     addsOn: [],
   });
 
@@ -47,9 +47,16 @@ export const Form = () => {
   const handleInputData = (input: any) => (e: any) => {
     const { value } = e.target;
 
-    setFormData((prevState) => ({
+    setUserData((prevState) => ({
       ...prevState,
       [input]: value,
+    }));
+  };
+
+  const handleUserData = (key: string, value: string) => {
+    setUserData((prevState) => ({
+      ...prevState,
+      [key]: value,
     }));
   };
 
@@ -65,33 +72,33 @@ export const Form = () => {
     case 1:
       return (
         <StepOne
-          handleFormData={handleInputData}
+          handleUserData={handleInputData}
           nextStep={nextStep}
-          values={formData}
+          values={userData}
         />
       );
     case 2:
       // return <SelectPlan formik={formik} />;
       return (
         <StepTwo
-          handleFormData={handleInputData}
+          handleUserData={handleUserData}
           nextStep={nextStep}
           prevStep={prevStep}
-          values={formData}
+          userData={userData}
         />
       );
     case 3:
       // return <AddsOn formik={formik} />;
       return (
         <StepThree
-          handleFormData={handleInputData}
+          handleUserData={handleInputData}
           nextStep={nextStep}
-          values={formData}
+          values={userData}
         />
       );
     case 4:
       // return <Summary formik={formik} />;
-      return <StepFour handleFormData={handleInputData} values={formData} />;
+      return <StepFour handleUserData={handleInputData} values={userData} />;
     default:
       return <div>404: Not Found</div>;
   }
