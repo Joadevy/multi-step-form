@@ -6,6 +6,7 @@ type props = {
   img: string;
   type: "monthly" | "yearly";
   active: boolean;
+  monthsFree?: number;
   handlePlan: (_: string, __: string | number) => void;
 };
 
@@ -16,6 +17,7 @@ export const Plan: FC<props> = ({
   type,
   active,
   handlePlan,
+  monthsFree,
 }) => {
   const togglePlan = (e: any) => {
     e.preventDefault();
@@ -35,11 +37,16 @@ export const Plan: FC<props> = ({
       <div>
         <img alt="" src={img} />
       </div>
-      <div className="flex flex-col gap-1 items-start">
+      <div className="flex flex-col items-start">
         <h2 className="font-bold text-p-marine-blue text-lg">{name}</h2>
         <p className="text-base text-n-cool-gray">
           {type === "monthly" ? `$${price}/mo` : `$${price}/yr`}
         </p>
+        {type === "yearly" ? (
+          <p className="text-xs font-bold text-p-marine-blue">
+            {monthsFree} months free
+          </p>
+        ) : null}
       </div>
     </button>
   );

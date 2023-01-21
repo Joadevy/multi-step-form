@@ -77,6 +77,7 @@ export const StepTwo: FC<props> = ({
             active={isActive("arcade")}
             handlePlan={handleUserData}
             img={arcadeImg}
+            monthsFree={2}
             name={"Arcade"}
             price={userData.planDuration === "monthly" ? 9 : 90}
             type={userData.planDuration}
@@ -85,6 +86,7 @@ export const StepTwo: FC<props> = ({
             active={isActive("advanced")}
             handlePlan={handleUserData}
             img={advancedImg}
+            monthsFree={2}
             name={"Advanced"}
             price={userData.planDuration === "monthly" ? 12 : 120}
             type={userData.planDuration}
@@ -93,11 +95,12 @@ export const StepTwo: FC<props> = ({
             active={isActive("pro")}
             handlePlan={handleUserData}
             img={proImg}
+            monthsFree={2}
             name={"Pro"}
             price={userData.planDuration === "monthly" ? 15 : 150}
             type={userData.planDuration}
           />
-          <div className="flex gap-4 mt-6 self-center">
+          <div className="flex gap-4 absolute bottom-28 self-center">
             <p
               className={
                 userData.planDuration === "monthly"

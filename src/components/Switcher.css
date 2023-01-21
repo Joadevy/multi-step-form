@@ -26,10 +26,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 15px;
-  width: 15px;
+  height: 14px;
+  width: 14px;
   left: 2px;
-  bottom: 2.5px;
+  bottom: 3px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
