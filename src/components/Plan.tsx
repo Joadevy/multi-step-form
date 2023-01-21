@@ -6,8 +6,7 @@ type props = {
   img: string;
   type: "monthly" | "yearly";
   active: boolean;
-  handlePlan: (_: string, __: string) => void;
-  //   handlePlan: (_: any) => ChangeEventHandler;
+  handlePlan: (_: string, __: string | number) => void;
 };
 
 export const Plan: FC<props> = ({
@@ -22,6 +21,7 @@ export const Plan: FC<props> = ({
     e.preventDefault();
     e.stopPropagation(); // because of the event bubbling with the next step btn
     handlePlan("plan", name.toLowerCase());
+    handlePlan("price", price);
   };
 
   return (
@@ -38,7 +38,7 @@ export const Plan: FC<props> = ({
       <div className="flex flex-col gap-1 items-start">
         <h2 className="font-bold text-p-marine-blue text-lg">{name}</h2>
         <p className="text-base text-n-cool-gray">
-          {type === "monthly" ? `$${price}/mo` : `${price}/yr`}
+          {type === "monthly" ? `$${price}/mo` : `$${price}/yr`}
         </p>
       </div>
     </button>

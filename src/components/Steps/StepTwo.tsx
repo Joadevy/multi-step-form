@@ -1,9 +1,11 @@
-import { ChangeEventHandler, FC, useState } from "react";
+import { FC } from "react";
 
 import { Plan } from "../Plan";
 import arcadeImg from "../../assets/images/icon-arcade.svg";
 import advancedImg from "../../assets/images/icon-advanced.svg";
 import proImg from "../../assets/images/icon-pro.svg";
+import Switcher from "../Switcher";
+import { pricesMonthly, pricesYearly } from "../Form";
 
 import { StepHeader } from "./StepHeader";
 
@@ -11,7 +13,7 @@ type props = {
   userData: any;
   nextStep: () => void;
   prevStep: () => void;
-  handleUserData: (_: string, __: string) => void;
+  handleUserData: (_: string, __: string | number) => void;
 };
 
 export const StepTwo: FC<props> = ({
@@ -30,11 +32,32 @@ export const StepTwo: FC<props> = ({
     //   nextStep();
     // }
 
-    nextStep();
+    if (userData.plan) {
+      switchPrices();
+      nextStep();
+    }
   };
 
   const isActive = (plan: string) => {
     return plan === userData.plan;
+  };
+
+  const handlePlanDuration = () => {
+    userData.planDuration === "monthly"
+      ? handleUserData("planDuration", "yearly")
+      : handleUserData("planDuration", "monthly");
+  };
+
+  const switchPrices = () => {
+    userData.planDuration === "monthly"
+      ? handleUserData(
+          "price",
+          pricesMonthly[userData.plan as "arcade" | "advanced" | "pro"]
+        )
+      : handleUserData(
+          "price",
+          pricesYearly[userData.plan as "arcade" | "advanced" | "pro"]
+        );
   };
 
   return (
@@ -55,7 +78,7 @@ export const StepTwo: FC<props> = ({
             handlePlan={handleUserData}
             img={arcadeImg}
             name={"Arcade"}
-            price={9}
+            price={userData.planDuration === "monthly" ? 9 : 90}
             type={userData.planDuration}
           />
           <Plan
@@ -63,7 +86,7 @@ export const StepTwo: FC<props> = ({
             handlePlan={handleUserData}
             img={advancedImg}
             name={"Advanced"}
-            price={12}
+            price={userData.planDuration === "monthly" ? 12 : 120}
             type={userData.planDuration}
           />
           <Plan
@@ -71,41 +94,30 @@ export const StepTwo: FC<props> = ({
             handlePlan={handleUserData}
             img={proImg}
             name={"Pro"}
-            price={15}
+            price={userData.planDuration === "monthly" ? 15 : 150}
             type={userData.planDuration}
           />
-
-          {/* <label
-            className="text-p-marine-blue font-medium text-base flex flex-col gap-1"
-            htmlFor="name"
-          >
-            Name
-            <input
-              required
-              className="rounded-sm border-2 border-n-light-gray p-1"
-              defaultValue={values.name}
-              id="name"
-              placeholder="e.g. Stephen King"
-              type="text"
-              onChange={handleFormData("name")}
-            />
-          </label>
-
-          <label
-            className="text-p-marine-blue font-medium text-base flex flex-col gap-1"
-            htmlFor="email"
-          >
-            Email Address
-            <input
-              required
-              className="rounded-sm border-2 border-n-light-gray p-1"
-              defaultValue={values.email}
-              id="email"
-              placeholder="e.g. stephenking@lorem.com"
-              type="text"
-              onChange={handleFormData("email")}
-            />
-          </label> */}
+          <div className="flex gap-4 mt-6 self-center">
+            <p
+              className={
+                userData.planDuration === "monthly"
+                  ? "text-p-marine-blue font-bold"
+                  : " text-n-cool-gray font-bold"
+              }
+            >
+              Monthly
+            </p>
+            <Switcher handlerStatus={handlePlanDuration} />
+            <p
+              className={
+                userData.planDuration === "yearly"
+                  ? "text-p-marine-blue font-bold"
+                  : " text-n-cool-gray font-bold"
+              }
+            >
+              Yearly
+            </p>
+          </div>
           <button
             className="absolute z-20 bottom-6 left-6 text-n-cool-gray text-lg hover:text-p-marine-blue transition-colors"
             onClick={prevStep}
@@ -119,8 +131,6 @@ export const StepTwo: FC<props> = ({
           />
         </form>
       </div>
-      {/* Select plan!
-      <button onClick={nextStep}>Siguiente</button> */}
     </div>
   );
 };

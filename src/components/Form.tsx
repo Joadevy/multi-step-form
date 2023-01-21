@@ -7,19 +7,43 @@ import { StepTwo } from "./Steps/StepTwo";
 import { StepThree } from "./Steps/StepThree";
 import { StepFour } from "./Steps/StepFour";
 
-const steps = ["Personal info", "Select plan", "Adds on", "Summary"];
+type user = {
+  name: string;
+  email: string;
+  phone: string;
+  plan: "arcade" | "advanced" | "pro" | "";
+  price: number;
+  planDuration: "monthly" | "yearly";
+  addsOn: string[];
+};
+
+export const pricesMonthly = {
+  arcade: 9,
+  advanced: 12,
+  pro: 15,
+};
+
+export const pricesYearly = {
+  arcade: 90,
+  advanced: 120,
+  pro: 150,
+};
 
 export const Form = () => {
   const [activeStep, setActiveStep] = useState(1);
-  const [userData, setUserData] = useState({
+  const [userData, setUserData] = useState<user>({
     name: "",
     email: "",
     phone: "",
     plan: "",
-    price: "",
+    price: 0,
     planDuration: "monthly",
     addsOn: [],
   });
+
+  // const handlePrice = () => {
+  // switchPrices(userData.plan, userData.planDuration);
+  // };
 
   //   const formik = useFormik({
   //     initialValues: {
@@ -53,7 +77,7 @@ export const Form = () => {
     }));
   };
 
-  const handleUserData = (key: string, value: string) => {
+  const handleUserData = (key: string, value: string | number) => {
     setUserData((prevState) => ({
       ...prevState,
       [key]: value,
