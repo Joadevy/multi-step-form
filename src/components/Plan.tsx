@@ -23,7 +23,7 @@ export const Plan: FC<props> = ({
     e.preventDefault();
     e.stopPropagation(); // because of the event bubbling with the next step btn
     handlePlan("plan", name.toLowerCase());
-    handlePlan("price", price);
+    handlePlan("pricePlan", price);
   };
 
   return (

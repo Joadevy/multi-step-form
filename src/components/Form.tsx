@@ -12,21 +12,33 @@ type user = {
   email: string;
   phone: string;
   plan: "arcade" | "advanced" | "pro" | "";
-  price: number;
+  pricePlan: number;
   planDuration: "monthly" | "yearly";
-  addsOn: string[];
+  addsOn: Map<string, number>;
 };
 
-export const pricesMonthly = {
+export const planPricesMonthly = {
   arcade: 9,
   advanced: 12,
   pro: 15,
 };
 
-export const pricesYearly = {
+export const planPricesYearly = {
   arcade: 90,
   advanced: 120,
   pro: 150,
+};
+
+export const addsOnPricesMonthly = {
+  "online service": 1,
+  "largage storage": 2,
+  "customizable profile": 2,
+};
+
+export const addsOnPricesYearly = {
+  "online service": 10,
+  "largage storage": 20,
+  "customizable profile": 20,
 };
 
 export const Form = () => {
@@ -36,9 +48,10 @@ export const Form = () => {
     email: "",
     phone: "",
     plan: "",
-    price: 0,
+    pricePlan: 0,
     planDuration: "monthly",
-    addsOn: [],
+    addsOn: new Map(),
+    // priceAddsOn: 0,
   });
 
   // const handlePrice = () => {
@@ -77,7 +90,10 @@ export const Form = () => {
     }));
   };
 
-  const handleUserData = (key: string, value: string | number) => {
+  const handleUserData = (
+    key: string,
+    value: string | number | Map<string, number>
+  ) => {
     setUserData((prevState) => ({
       ...prevState,
       [key]: value,
@@ -115,9 +131,10 @@ export const Form = () => {
       // return <AddsOn formik={formik} />;
       return (
         <StepThree
-          handleUserData={handleInputData}
+          handleUserData={handleUserData}
           nextStep={nextStep}
-          values={userData}
+          prevStep={prevStep}
+          userData={userData}
         />
       );
     case 4:

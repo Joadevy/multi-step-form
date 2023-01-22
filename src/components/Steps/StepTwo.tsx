@@ -5,7 +5,7 @@ import arcadeImg from "../../assets/images/icon-arcade.svg";
 import advancedImg from "../../assets/images/icon-advanced.svg";
 import proImg from "../../assets/images/icon-pro.svg";
 import Switcher from "../Switcher";
-import { pricesMonthly, pricesYearly } from "../Form";
+import { planPricesMonthly, planPricesYearly } from "../../Prices";
 
 import { StepHeader } from "./StepHeader";
 
@@ -51,19 +51,19 @@ export const StepTwo: FC<props> = ({
   const switchPrices = () => {
     userData.planDuration === "monthly"
       ? handleUserData(
-          "price",
-          pricesMonthly[userData.plan as "arcade" | "advanced" | "pro"]
+          "pricePlan",
+          planPricesMonthly[userData.plan as "arcade" | "advanced" | "pro"]
         )
       : handleUserData(
-          "price",
-          pricesYearly[userData.plan as "arcade" | "advanced" | "pro"]
+          "pricePlan",
+          planPricesYearly[userData.plan as "arcade" | "advanced" | "pro"]
         );
   };
 
   return (
     <div>
       <StepHeader active={2} steps={[1, 2, 3, 4]} />
-      <div className="flex flex-col rounded-xl mx-5 my-24 shadow p-8 bg-white">
+      <div className="flex flex-col rounded-xl mx-5 my-24 p-8 bg-white">
         <header className="flex flex-col gap-2">
           <h2 className="font-bold text-3xl text-p-marine-blue">
             Select your plan
