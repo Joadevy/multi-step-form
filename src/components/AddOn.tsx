@@ -26,8 +26,13 @@ export const AddOn: FC<props> = ({
     : handleRemove(title.toLowerCase(), price);
 
   return (
-    <li>
-      <div>
+    <li
+      className={
+        "relative w-full border border-n-light-gray rounded-md p-3 flex gap-4 items-center hover:opacity-70 " +
+        (checked ? " border-p-purplish-blue" : "")
+      }
+    >
+      <div className="flex gap-4">
         <input
           checked={checked}
           id=""
@@ -35,12 +40,14 @@ export const AddOn: FC<props> = ({
           type="checkbox"
           onChange={(e) => toggleCheck(e.target.checked)}
         />
-        <div>
-          <h3>{title}</h3>
-          <p>{desc}</p>
+        <div className="w-8/12 sm:w-full">
+          <h3 className="text-base text-p-marine-blue font-bold">{title}</h3>
+          <p className="text-n-cool-gray">{desc}</p>
         </div>
       </div>
-      <p>{type === "monthly" ? `+$${price}/mo` : `+$${price}/yr`}</p>
+      <p className=" text-p-purplish-blue text-base font-medium absolute right-2">
+        {type === "monthly" ? `+$${price}/mo` : `+$${price}/yr`}
+      </p>
     </li>
   );
 };

@@ -98,7 +98,7 @@ export const StepThree: FC<props> = ({
           </p>
         </header>
         <form className="flex flex-col gap-4 mt-6" onSubmit={submitUserData}>
-          <ul>
+          <ul className="flex flex-col gap-5">
             <AddOn
               checked={userData.addsOn.has("online service")}
               desc={"Access to multiplayer games"}
