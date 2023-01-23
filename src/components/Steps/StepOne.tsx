@@ -1,14 +1,16 @@
 import { ChangeEventHandler, FC, useState } from "react";
 
+import { User } from "../Form";
+
 import { StepHeader } from "./StepHeader";
 
 type props = {
-  values: any;
+  userData: User;
   nextStep: () => void;
   handleUserData: (_: any) => ChangeEventHandler;
 };
 
-export const StepOne: FC<props> = ({ values, nextStep, handleUserData }) => {
+export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
   const [error, setError] = useState(false);
   const submitFormData = (e: any) => {
     e.preventDefault();
@@ -44,7 +46,7 @@ export const StepOne: FC<props> = ({ values, nextStep, handleUserData }) => {
             <input
               required
               className="rounded-sm border-2 border-n-light-gray p-1"
-              defaultValue={values.name}
+              defaultValue={userData.name}
               id="name"
               placeholder="e.g. Stephen King"
               type="text"
@@ -60,7 +62,7 @@ export const StepOne: FC<props> = ({ values, nextStep, handleUserData }) => {
             <input
               required
               className="rounded-sm border-2 border-n-light-gray p-1"
-              defaultValue={values.email}
+              defaultValue={userData.email}
               id="email"
               placeholder="e.g. stephenking@lorem.com"
               type="text"
@@ -76,7 +78,7 @@ export const StepOne: FC<props> = ({ values, nextStep, handleUserData }) => {
             <input
               required
               className="rounded-sm border-2 border-n-light-gray p-1"
-              defaultValue={values.phone}
+              defaultValue={userData.phone}
               id="phone"
               placeholder="e.g. +1 234 567 890"
               type="text"

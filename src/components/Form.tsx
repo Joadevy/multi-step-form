@@ -7,7 +7,7 @@ import { StepTwo } from "./Steps/StepTwo";
 import { StepThree } from "./Steps/StepThree";
 import { StepFour } from "./Steps/StepFour";
 
-type user = {
+export type User = {
   name: string;
   email: string;
   phone: string;
@@ -19,7 +19,7 @@ type user = {
 
 export const Form = () => {
   const [activeStep, setActiveStep] = useState(1);
-  const [userData, setUserData] = useState<user>({
+  const [userData, setUserData] = useState<User>({
     name: "",
     email: "",
     phone: "",
@@ -75,6 +75,10 @@ export const Form = () => {
     }));
   };
 
+  const backToPlan = () => {
+    setActiveStep(2);
+  };
+
   const nextStep = () => {
     setActiveStep(activeStep + 1);
   };
@@ -89,7 +93,7 @@ export const Form = () => {
         <StepOne
           handleUserData={handleInputData}
           nextStep={nextStep}
-          values={userData}
+          userData={userData}
         />
       );
     case 2:
@@ -114,7 +118,15 @@ export const Form = () => {
       );
     case 4:
       // return <Summary formik={formik} />;
-      return <StepFour handleUserData={handleInputData} values={userData} />;
+      return (
+        <StepFour
+          backToPlan={backToPlan}
+          handleUserData={handleUserData}
+          nextStep={nextStep}
+          prevStep={prevStep}
+          userData={userData}
+        />
+      );
     default:
       return <div>404: Not Found</div>;
   }

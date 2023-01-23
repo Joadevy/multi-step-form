@@ -2,11 +2,12 @@ import { FC } from "react";
 
 import { AddOn } from "../AddOn";
 import { addsOnPricesMonthly, addsOnPricesYearly } from "../../Prices";
+import { User } from "../Form";
 
 import { StepHeader } from "./StepHeader";
 
 type props = {
-  userData: any;
+  userData: User;
   prevStep: () => void;
   nextStep: () => void;
   handleUserData: (_: string, __: Map<string, number> | number) => void;
@@ -49,27 +50,34 @@ export const StepThree: FC<props> = ({
     const draft: Map<string, number> = new Map(userData.addsOn);
 
     userData.planDuration === "monthly"
-      ? draft.forEach((_, addOn) =>
+      ? draft.forEach((_, addOn) => {
+          console.log(addOn);
           draft.set(
             addOn,
+            // (addOn as "online service",
+            // "largage storage",
+            // "customizable profile")
             addsOnPricesMonthly[
-              (addOn as "online service",
-              "largage storage",
-              "customizable profile")
+              addOn as
+                | "online service"
+                | "larger storage"
+                | "customizable profile"
             ]
-          )
-        )
+          );
+        })
       : draft.forEach((_, addOn) =>
           draft.set(
             addOn,
             addsOnPricesYearly[
-              (addOn as "online service",
-              "largage storage",
-              "customizable profile")
+              addOn as
+                | "online service"
+                | "larger storage"
+                | "customizable profile"
             ]
           )
         );
 
+    // console.log(draft);
     handleUserData("addsOn", draft);
   };
 

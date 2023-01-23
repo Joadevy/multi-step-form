@@ -12,12 +12,12 @@ export const planPricesYearly = {
 
 export const addsOnPricesMonthly = {
   "online service": 1,
-  "largage storage": 2,
+  "larger storage": 2,
   "customizable profile": 2,
 };
 
 export const addsOnPricesYearly = {
   "online service": 10,
-  "largage storage": 20,
+  "larger storage": 20,
   "customizable profile": 20,
 };

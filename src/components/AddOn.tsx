@@ -40,7 +40,13 @@ export const AddOn: FC<props> = ({
           id=""
           name=""
           type="checkbox"
-          onChange={(e) => toggleCheck(e.target.checked)}
+          onChange={(e) => {
+            toggleCheck(e.target.checked);
+          }}
+          onKeyPress={(e) => {
+            e.preventDefault();
+            toggleCheck(!isChecked);
+          }}
         />
         <div className="w-8/12 sm:w-full text-left">
           <h3 className="text-base text-p-marine-blue font-bold">{title}</h3>

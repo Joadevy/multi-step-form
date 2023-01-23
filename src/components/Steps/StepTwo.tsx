@@ -6,11 +6,12 @@ import advancedImg from "../../assets/images/icon-advanced.svg";
 import proImg from "../../assets/images/icon-pro.svg";
 import Switcher from "../Switcher";
 import { planPricesMonthly, planPricesYearly } from "../../Prices";
+import { User } from "../Form";
 
 import { StepHeader } from "./StepHeader";
 
 type props = {
-  userData: any;
+  userData: User;
   nextStep: () => void;
   prevStep: () => void;
   handleUserData: (_: string, __: string | number) => void;
