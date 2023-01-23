@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FC } from "react";
+import { FC, MouseEvent } from "react";
 
 type props = {
   name: string;
@@ -19,7 +19,7 @@ export const Plan: FC<props> = ({
   handlePlan,
   monthsFree,
 }) => {
-  const togglePlan = (e: any) => {
+  const togglePlan = (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation(); // because of the event bubbling with the next step btn
     handlePlan("plan", name.toLowerCase());

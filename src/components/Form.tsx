@@ -17,30 +17,6 @@ type user = {
   addsOn: Map<string, number>;
 };
 
-export const planPricesMonthly = {
-  arcade: 9,
-  advanced: 12,
-  pro: 15,
-};
-
-export const planPricesYearly = {
-  arcade: 90,
-  advanced: 120,
-  pro: 150,
-};
-
-export const addsOnPricesMonthly = {
-  "online service": 1,
-  "largage storage": 2,
-  "customizable profile": 2,
-};
-
-export const addsOnPricesYearly = {
-  "online service": 10,
-  "largage storage": 20,
-  "customizable profile": 20,
-};
-
 export const Form = () => {
   const [activeStep, setActiveStep] = useState(1);
   const [userData, setUserData] = useState<user>({
@@ -51,7 +27,6 @@ export const Form = () => {
     pricePlan: 0,
     planDuration: "monthly",
     addsOn: new Map(),
-    // priceAddsOn: 0,
   });
 
   // const handlePrice = () => {

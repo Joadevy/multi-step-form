@@ -37,7 +37,6 @@ export const StepThree: FC<props> = ({
   const handleAdd = (title: string, price: number) => {
     const addsOn = new Map(userData.addsOn as Map<string, number>);
 
-    console.log(addsOn);
     const exist = addsOn.has(title);
 
     if (!exist) {
