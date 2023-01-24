@@ -9,8 +9,6 @@ type props = {
   prevStep: () => void;
   nextStep: () => void;
   backToPlan: () => void;
-
-  handleUserData: (_: string, __: Map<string, number> | number) => void;
 };
 
 const capitalizeFirst = (word: string) => {
@@ -19,7 +17,6 @@ const capitalizeFirst = (word: string) => {
 
 export const StepFour: FC<props> = ({
   userData,
-  handleUserData,
   backToPlan,
   prevStep,
   nextStep,

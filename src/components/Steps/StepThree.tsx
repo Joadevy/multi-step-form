@@ -51,7 +51,6 @@ export const StepThree: FC<props> = ({
 
     userData.planDuration === "monthly"
       ? draft.forEach((_, addOn) => {
-          console.log(addOn);
           draft.set(
             addOn,
             // (addOn as "online service",
@@ -77,7 +76,6 @@ export const StepThree: FC<props> = ({
           )
         );
 
-    // console.log(draft);
     handleUserData("addsOn", draft);
   };
 

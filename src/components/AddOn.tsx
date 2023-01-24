@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 type props = {
   title: string;
@@ -21,9 +21,11 @@ export const AddOn: FC<props> = ({
 }) => {
   const [isChecked, toggleCheck] = useState(checked);
 
-  isChecked
-    ? handleAdd(title.toLowerCase(), price)
-    : handleRemove(title.toLowerCase(), price);
+  useEffect(() => {
+    isChecked
+      ? handleAdd(title.toLowerCase(), price)
+      : handleRemove(title.toLowerCase(), price);
+  }, [isChecked]);
 
   return (
     <div
