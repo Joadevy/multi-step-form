@@ -6,6 +6,7 @@ import { StepOne } from "./Steps/StepOne";
 import { StepTwo } from "./Steps/StepTwo";
 import { StepThree } from "./Steps/StepThree";
 import { StepFour } from "./Steps/StepFour";
+import { StepFive } from "./Steps/StepFive";
 
 export type User = {
   name: string;
@@ -121,12 +122,14 @@ export const Form = () => {
       return (
         <StepFour
           backToPlan={backToPlan}
-          handleUserData={handleUserData}
           nextStep={nextStep}
           prevStep={prevStep}
           userData={userData}
         />
       );
+    case 5:
+      // return <Summary formik={formik} />;
+      return <StepFive />;
     default:
       return <div>404: Not Found</div>;
   }
