@@ -51,7 +51,7 @@ export const StepFour: FC<props> = ({
     <div>
       <StepHeader active={4} steps={[1, 2, 3, 4]} />
 
-      <div className="flex flex-col rounded-xl mx-5 my-24 p-8 bg-white">
+      <div className="flex flex-col rounded-xl mx-5 my-28 p-8 bg-white">
         <header className="flex flex-col gap-2">
           <h2 className="font-bold text-3xl text-p-marine-blue">
             Finishing up
