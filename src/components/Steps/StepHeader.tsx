@@ -8,7 +8,7 @@ type props = {
 export const StepHeader: FC<props> = ({ steps, active }) => {
   return (
     <header className="h-48 w-full absolute top-0 -z-10 bg-mobileHero flex bg-cover bg-no-repeat">
-      <ul className="flex gap-4 w-full justify-center pt-7 text-white">
+      <ul className="flex gap-4 w-full justify-center pt-10 text-white">
         {steps.map((step) => (
           <li
             key={step}
