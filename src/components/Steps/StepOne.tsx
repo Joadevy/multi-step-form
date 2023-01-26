@@ -29,16 +29,19 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
   };
 
   return (
-    <div>
+    <div className="lg:flex lg:my-10 lg:mx-48 border-2 border-blue-500">
       <StepHeader active={1} steps={[1, 2, 3, 4]} />
-      <div className="min-h-screen relative border border-transparent">
+      <div className="min-h-screen lg:w-[70%] lg:min-h-0 relative border border-red-500">
         <Container>
           <Header
             desc="Please provide your name, email adress, and phone number."
             title="Personal info"
           />
 
-          <form className="flex flex-col gap-4 mt-6" onSubmit={submitFormData}>
+          <form
+            className="flex flex-col gap-4 lg:gap-10 mt-6"
+            onSubmit={submitFormData}
+          >
             <label
               className="text-p-marine-blue font-medium text-base flex flex-col gap-1"
               htmlFor="name"
@@ -46,7 +49,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               Name
               <input
                 required
-                className="rounded-sm border-2 border-n-light-gray p-1"
+                className="rounded-sm border-2 border-n-light-gray p-1 lg:p-2 lg:w-1/2 lg:h-10"
                 defaultValue={userData.name}
                 id="name"
                 placeholder="e.g. Stephen King"
@@ -62,7 +65,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               Email Address
               <input
                 required
-                className="rounded-sm border-2 border-n-light-gray p-1"
+                className="rounded-sm border-2 border-n-light-gray p-1 lg:p-2 lg:w-1/2 lg:h-10"
                 defaultValue={userData.email}
                 id="email"
                 placeholder="e.g. stephenking@lorem.com"
@@ -78,7 +81,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               Phone Number
               <input
                 required
-                className="rounded-sm border-2 border-n-light-gray p-1"
+                className="rounded-sm border-2 border-n-light-gray p-1 lg:p-2 lg:w-1/2 lg:h-10"
                 defaultValue={userData.phone}
                 id="phone"
                 placeholder="e.g. +1 234 567 890"

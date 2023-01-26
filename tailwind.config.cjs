@@ -19,6 +19,7 @@ module.exports = {
       },
       backgroundImage: {
         mobileHero: "url('./assets/images/bg-sidebar-mobile.svg')",
+        desktopHero: "url('./assets/images/bg-sidebar-desktop.svg')",
       },
     },
   },
