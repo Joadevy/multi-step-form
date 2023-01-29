@@ -66,17 +66,20 @@ export const StepTwo: FC<props> = ({
   };
 
   return (
-    <div>
+    <div className="lg:flex lg:my-10 lg:mx-48 lg:border lg:border-black">
       <StepHeader active={2} steps={[1, 2, 3, 4]} />
-      <div className="min-h-screen relative border border-transparent">
+      <div className="min-h-screen lg:w-[70%] lg:min-h-0 relative">
         <Container>
           <Header
             desc="You have the option of monthly or yearly biling."
             title="Select your plan"
           />
 
-          <form className="flex flex-col gap-4 " onSubmit={submitUserData}>
-            <div className="flex flex-col gap-4 mb-8">
+          <form
+            className="flex flex-col gap-4 lg:gap-5 mt-6 lg:mb-24 "
+            onSubmit={submitUserData}
+          >
+            <div className="flex flex-col lg:flex-row gap-4 mb-8 lg:p-4 lg:justify-around">
               <Plan
                 active={isActive("arcade")}
                 handlePlan={handleUserData}

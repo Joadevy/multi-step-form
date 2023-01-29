@@ -29,7 +29,7 @@ export const Plan: FC<props> = ({
   return (
     <button
       className={
-        "border border-n-light-gray rounded-md p-4 flex gap-4 items-center hover:opacity-70 " +
+        "border border-n-light-gray rounded-md p-4 flex lg:flex-col gap-4 items-center hover:opacity-70 lg:w-1/3 " +
         (active ? " border-p-purplish-blue" : "")
       }
       onClick={(e) => togglePlan(e)}
@@ -37,16 +37,21 @@ export const Plan: FC<props> = ({
       <div>
         <img alt="" src={img} />
       </div>
-      <div className="flex flex-col items-start">
-        <h2 className="font-bold text-p-marine-blue text-lg">{name}</h2>
-        <p className="text-base text-n-cool-gray">
+      <div className="flex flex-col items-start lg:gap-1">
+        <h2 className="font-bold text-p-marine-blue text-lg lg:text-base">
+          {name}
+        </h2>
+        <p className="text-base text-n-cool-gray lg:text-sm">
           {type === "monthly" ? `$${price}/mo` : `$${price}/yr`}
         </p>
-        {type === "yearly" ? (
-          <p className="text-xs font-bold text-p-marine-blue">
-            {monthsFree} months free
-          </p>
-        ) : null}
+        <p
+          className={
+            "text-xs font-bold text-p-marine-blue " +
+            (type === "yearly" ? "opacity-100" : "opacity-0")
+          }
+        >
+          {monthsFree} months free
+        </p>
       </div>
     </button>
   );
