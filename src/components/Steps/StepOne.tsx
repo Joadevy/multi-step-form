@@ -29,9 +29,9 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
   };
 
   return (
-    <div className="lg:flex lg:my-10 lg:mx-48 border-2 border-blue-500">
+    <div className="lg:flex lg:my-10 lg:mx-48">
       <StepHeader active={1} steps={[1, 2, 3, 4]} />
-      <div className="min-h-screen lg:w-[70%] lg:min-h-0 relative border border-red-500">
+      <div className="min-h-screen lg:w-[70%] lg:min-h-0 relative">
         <Container>
           <Header
             desc="Please provide your name, email adress, and phone number."
@@ -39,11 +39,11 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
           />
 
           <form
-            className="flex flex-col gap-4 lg:gap-10 mt-6"
+            className="flex flex-col gap-4 lg:gap-5 mt-6 lg:mb-24"
             onSubmit={submitFormData}
           >
             <label
-              className="text-p-marine-blue font-medium text-base flex flex-col gap-1"
+              className="text-p-marine-blue font-medium text-base lg:text-sm flex flex-col gap-1"
               htmlFor="name"
             >
               Name
@@ -59,7 +59,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
             </label>
 
             <label
-              className="text-p-marine-blue font-medium text-base flex flex-col gap-1"
+              className="text-p-marine-blue font-medium text-base lg:text-sm flex flex-col gap-1"
               htmlFor="email"
             >
               Email Address
@@ -75,7 +75,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
             </label>
 
             <label
-              className="text-p-marine-blue font-medium text-base flex flex-col gap-1"
+              className="text-p-marine-blue font-medium text-base lg:text-sm flex flex-col gap-1"
               htmlFor="phone"
             >
               Phone Number

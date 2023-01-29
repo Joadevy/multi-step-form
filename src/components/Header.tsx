@@ -8,8 +8,12 @@ type props = {
 export const Header: FC<props> = ({ title, desc }) => {
   return (
     <header className="flex flex-col gap-2">
-      <h2 className="font-bold text-3xl text-p-marine-blue">{title}</h2>
-      <p className="text-n-cool-gray text-lg font-medium">{desc}</p>
+      <h2 className="font-bold text-3xl lg:text-2xl text-p-marine-blue">
+        {title}
+      </h2>
+      <p className="text-n-cool-gray text-lg lg:text-base font-medium">
+        {desc}
+      </p>
     </header>
   );
 };
