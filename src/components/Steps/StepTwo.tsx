@@ -66,9 +66,9 @@ export const StepTwo: FC<props> = ({
   };
 
   return (
-    <div className="lg:flex lg:my-10 lg:mx-48 lg:border lg:border-black">
+    <div className="lg:flex lg:my-10 lg:mx-48 gap-5">
       <StepHeader active={2} steps={[1, 2, 3, 4]} />
-      <div className="min-h-screen lg:w-[70%] lg:min-h-0 relative">
+      <div className="min-h-screen lg:w-[400px] lg:h-[500px] lg:min-h-0 relative ">
         <Container>
           <Header
             desc="You have the option of monthly or yearly biling."

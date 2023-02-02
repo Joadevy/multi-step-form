@@ -29,9 +29,9 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
   };
 
   return (
-    <div className="lg:flex lg:my-10 lg:mx-48">
+    <div className="lg:flex lg:my-10 lg:mx-48 gap-5">
       <StepHeader active={1} steps={[1, 2, 3, 4]} />
-      <div className="min-h-screen lg:w-[70%] lg:min-h-0 relative">
+      <div className="min-h-screen lg:w-[400px] lg:h-[500px] lg:min-h-0 relative ">
         <Container>
           <Header
             desc="Please provide your name, email adress, and phone number."
@@ -49,7 +49,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               Name
               <input
                 required
-                className="rounded-sm border-2 border-n-light-gray p-1 lg:p-2 lg:w-1/2 lg:h-10"
+                className="rounded-sm  lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10"
                 defaultValue={userData.name}
                 id="name"
                 placeholder="e.g. Stephen King"
@@ -65,7 +65,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               Email Address
               <input
                 required
-                className="rounded-sm border-2 border-n-light-gray p-1 lg:p-2 lg:w-1/2 lg:h-10"
+                className="rounded-sm lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10"
                 defaultValue={userData.email}
                 id="email"
                 placeholder="e.g. stephenking@lorem.com"
@@ -81,7 +81,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               Phone Number
               <input
                 required
-                className="rounded-sm border-2 border-n-light-gray p-1 lg:p-2 lg:w-1/2 lg:h-10"
+                className="rounded-sm lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10"
                 defaultValue={userData.phone}
                 id="phone"
                 placeholder="e.g. +1 234 567 890"
