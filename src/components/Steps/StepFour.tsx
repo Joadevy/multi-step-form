@@ -52,27 +52,32 @@ export const StepFour: FC<props> = ({
   };
 
   return (
-    <div>
+    <div className="lg:flex lg:my-10 lg:mx-48 gap-5">
       <StepHeader active={4} steps={[1, 2, 3, 4]} />
-      <div className="min-h-screen relative border border-transparent">
+      <div className="min-h-screen lg:w-[400px] lg:h-[500px] lg:min-h-0 relative ">
         <Container>
           <Header
             desc="Double-check everything looks OK before confirming."
             title="Finishing up"
           />
 
-          <form className="flex flex-col gap-4 mt-6" onSubmit={submitUserData}>
+          <form
+            className="flex flex-col gap-4 mt-6 lg:p-4"
+            onSubmit={submitUserData}
+          >
             <ul className="flex flex-col gap-4">
               <li className="flex justify-between items-center mb-3">
                 <div>
-                  <h3 className="font-bold text-p-marine-blue text-lg">{`${capitalizeFirst(
+                  <h3 className="font-bold text-p-marine-blue text-lg lg:text-base">{`${capitalizeFirst(
                     userData.plan
                   )} (${capitalizeFirst(userData.planDuration)})`}</h3>
                   <button onClick={backToPlan}>
-                    <p className="underline text-n-cool-gray text-lg">Change</p>
+                    <p className="underline text-n-cool-gray text-lg lg:text-base">
+                      Change
+                    </p>
                   </button>
                 </div>
-                <p className="font-bold text-p-marine-blue text-lg mr-2">
+                <p className="font-bold text-p-marine-blue text-lg lg:text-base mr-2">
                   {userData.planDuration === "monthly"
                     ? `$${userData.pricePlan}/mo`
                     : `$${userData.pricePlan}/yr`}
@@ -86,7 +91,7 @@ export const StepFour: FC<props> = ({
                     className="flex justify-between items-center "
                   >
                     <div>
-                      <h3 className="font-medium text-n-cool-gray text-lg">
+                      <h3 className="font-medium text-n-cool-gray text-lg lg:text-base">
                         {capitalizeFirst(
                           addOn[0] as
                             | "online service"
@@ -95,7 +100,7 @@ export const StepFour: FC<props> = ({
                         )}
                       </h3>
                     </div>
-                    <p className="font-bold text-p-marine-blue text-lg mr-2">
+                    <p className="font-bold text-p-marine-blue text-lg lg:text-base mr-2">
                       {userData.planDuration === "monthly"
                         ? `+$${addOn[1] as number}/mo`
                         : `+$${addOn[1] as number}/yr`}
@@ -104,9 +109,9 @@ export const StepFour: FC<props> = ({
                 )
               )}
 
-              <li className="flex justify-between items-center mt-5">
+              <li className="flex justify-between items-center mt-5 lg:mt-10">
                 <div>
-                  <h3 className="font-medium text-n-cool-gray text-lg">{`${capitalizeFirst(
+                  <h3 className="font-medium text-n-cool-gray text-lg lg:text-base">{`${capitalizeFirst(
                     "total"
                   )} (${
                     userData.planDuration === "monthly"
@@ -114,7 +119,7 @@ export const StepFour: FC<props> = ({
                       : "per year"
                   })`}</h3>
                 </div>
-                <p className="font-bold text-p-purplish-blue text-xl mr-2">
+                <p className="font-bold text-p-purplish-blue text-xl lg:text-lg mr-2">
                   {userData.planDuration === "monthly"
                     ? `$${getTotalPrice()}/mo`
                     : `$${getTotalPrice()}/yr`}
