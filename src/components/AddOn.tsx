@@ -30,7 +30,7 @@ export const AddOn: FC<props> = ({
   return (
     <div
       className={
-        "relative w-full border border-n-light-gray rounded-md p-3 flex gap-4 items-center hover:opacity-70 " +
+        "relative w-full border border-n-light-gray rounded-md p-3 lg:px-6 lg:py-3 flex gap-4 items-center hover:opacity-70 " +
         (checked ? " border-p-purplish-blue" : "")
       }
     >
@@ -55,7 +55,7 @@ export const AddOn: FC<props> = ({
           <p className="text-n-cool-gray justify-self-start">{desc}</p>
         </div>
       </div>
-      <p className="text-p-purplish-blue text-base font-medium absolute right-2">
+      <p className="text-p-purplish-blue text-base font-medium absolute right-2 lg:right-6">
         {type === "monthly" ? `+$${price}/mo` : `+$${price}/yr`}
       </p>
     </div>

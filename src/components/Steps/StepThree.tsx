@@ -94,9 +94,9 @@ export const StepThree: FC<props> = ({
   };
 
   return (
-    <div>
+    <div className="lg:flex lg:my-10 lg:mx-48 gap-5">
       <StepHeader active={3} steps={[1, 2, 3, 4]} />
-      <div className="min-h-screen relative border border-transparent">
+      <div className="min-h-screen lg:w-[400px] lg:h-[500px] lg:min-h-0 relative ">
         <Container>
           <Header
             desc="Add-ons help enhace your gaming experience."
