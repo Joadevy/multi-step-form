@@ -11,7 +11,7 @@ export const StepFive: FC = () => {
 
       <div
         className="flex flex-col rounded-xl mx-5 my-28 p-8 bg-white 
-       lg:mx-0 lg:my-0 lg:p-0 lg:w-[400px] lg:h-[500px] lg:min-h-0 relative lg:items-center lg:justify-center "
+       lg:mx-0 lg:my-0 lg:p-0 lg:w-[400px] lg:h-[500px] 2xl:w-[700px] 2xl:h-[800px]  lg:min-h-0 relative lg:items-center lg:justify-center "
       >
         <header className="flex flex-col mt-10 gap-3 items-center">
           <div className="w-20 h-20 mb-3">
