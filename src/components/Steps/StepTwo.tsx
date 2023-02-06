@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { Plan } from "../Plan";
 import arcadeImg from "../../assets/images/icon-arcade.svg";
@@ -11,6 +11,7 @@ import { GrayButton } from "../Buttons/GrayButton";
 import { NextButton } from "../Buttons/NextButton";
 import { Container } from "../Container";
 import { Header } from "../Header";
+import { ErrorMessage } from "../ErrorMesage";
 
 import { StepHeader } from "./StepHeader";
 
@@ -27,6 +28,8 @@ export const StepTwo: FC<props> = ({
   prevStep,
   handleUserData,
 }) => {
+  const [error, setError] = useState(false);
+
   const submitUserData = (e: any) => {
     e.preventDefault();
 
@@ -40,6 +43,8 @@ export const StepTwo: FC<props> = ({
     if (userData.plan) {
       switchPrices();
       nextStep();
+    } else {
+      setError(true);
     }
   };
 
@@ -131,6 +136,9 @@ export const StepTwo: FC<props> = ({
             </div>
             <GrayButton action={prevStep} label={"Go Back"} />
             <NextButton bgColor="bg-p-marine-blue" label="Next Step" />
+            {error ? (
+              <ErrorMessage message="Select a plan before step to the next" />
+            ) : null}
           </form>
         </Container>
       </div>

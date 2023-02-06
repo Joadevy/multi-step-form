@@ -13,8 +13,18 @@ type props = {
   handleUserData: (_: any) => ChangeEventHandler;
 };
 
+const validEmailRegex = new RegExp(
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+);
+
+const validPhoneRegex = new RegExp(
+  /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
+);
+
+const validNameRegex = new RegExp(/^[a-zA-Z]+ ?[a-zA-Z]+$/);
+
 export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<Set<string>>(new Set());
   const submitFormData = (e: any) => {
     e.preventDefault();
 
@@ -26,6 +36,62 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
     // }
 
     nextStep();
+  };
+
+  const validateMail = () => {
+    if (validEmailRegex.test(userData.email) && !error.has("email")) return;
+
+    if (validEmailRegex.test(userData.email) && error.has("email")) {
+      const draft = new Set([...error]);
+
+      draft.delete("email");
+      setError(draft);
+    }
+
+    if (!validEmailRegex.test(userData.email) && !error.has("email"))
+      setError((prev) => new Set([...prev, "email"]));
+  };
+
+  const validatePhone = () => {
+    if (validPhoneRegex.test(userData.phone) && !error.has("phone")) return;
+
+    if (validPhoneRegex.test(userData.phone) && error.has("phone")) {
+      const draft = new Set([...error]);
+
+      draft.delete("phone");
+      setError(draft);
+    }
+
+    if (!validPhoneRegex.test(userData.phone) && !error.has("phone"))
+      setError((prev) => new Set([...prev, "phone"]));
+  };
+
+  const validateName = () => {
+    if (validNameRegex.test(userData.name) && !error.has("name")) return;
+
+    if (validNameRegex.test(userData.name) && error.has("name")) {
+      const draft = new Set([...error]);
+
+      draft.delete("name");
+      setError(draft);
+    }
+
+    if (!validNameRegex.test(userData.name) && !error.has("name"))
+      setError((prev) => new Set([...prev, "name"]));
+  };
+
+  const handleBlur = (fieldToValidate: "name" | "email" | "phone") => {
+    switch (fieldToValidate) {
+      case "email":
+        validateMail();
+        break;
+      case "phone":
+        validatePhone();
+        break;
+      case "name":
+        validateName();
+        break;
+    }
   };
 
   return (
@@ -49,11 +115,17 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               Name
               <input
                 required
-                className="rounded-sm  lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10"
+                className={
+                  "rounded-sm  lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10 " +
+                  (error.has("name")
+                    ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
+                    : "")
+                }
                 defaultValue={userData.name}
                 id="name"
                 placeholder="e.g. Stephen King"
                 type="text"
+                onBlur={() => handleBlur("name")}
                 onChange={handleUserData("name")}
               />
             </label>
@@ -65,11 +137,17 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               Email Address
               <input
                 required
-                className="rounded-sm lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10"
+                className={
+                  "rounded-sm lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10 " +
+                  (error.has("email")
+                    ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
+                    : "")
+                }
                 defaultValue={userData.email}
                 id="email"
                 placeholder="e.g. stephenking@lorem.com"
                 type="text"
+                onBlur={() => handleBlur("email")}
                 onChange={handleUserData("email")}
               />
             </label>
@@ -81,11 +159,17 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               Phone Number
               <input
                 required
-                className="rounded-sm lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10"
+                className={
+                  "rounded-sm lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10 " +
+                  (error.has("phone")
+                    ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
+                    : "")
+                }
                 defaultValue={userData.phone}
                 id="phone"
-                placeholder="e.g. +1 234 567 890"
+                placeholder="e.g. +1 234 567 8910"
                 type="text"
+                onBlur={() => handleBlur("phone")}
                 onChange={handleUserData("phone")}
               />
             </label>
