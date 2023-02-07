@@ -106,10 +106,10 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               htmlFor="name"
             >
               <div className="flex justify-between items-center">
-                <p>Name</p>
+                <p className="lg:text-sm">Name</p>
 
                 {error.has("name") ? (
-                  <p className="text-xs lg:text-base text-p-strawberry-red">
+                  <p className="text-xs lg:text-sm text-p-strawberry-red">
                     Please enter a valid name
                   </p>
                 ) : null}
@@ -136,10 +136,10 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               htmlFor="email"
             >
               <div className="flex justify-between items-center">
-                <p>Email</p>
+                <p className="lg:text-sm">Email</p>
 
                 {error.has("email") ? (
-                  <p className="text-xs lg:text-base text-p-strawberry-red">
+                  <p className="text-xs lg:text-sm text-p-strawberry-red">
                     Please enter a valid email
                   </p>
                 ) : null}
@@ -166,10 +166,10 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               htmlFor="phone"
             >
               <div className="flex justify-between items-center">
-                <p>Phone</p>
+                <p className="lg:text-sm">Phone</p>
 
                 {error.has("phone") ? (
-                  <p className="text-xs lg:text-base text-p-strawberry-red">
+                  <p className="text-xs lg:text-sm text-p-strawberry-red">
                     Please enter a valid phone number
                   </p>
                 ) : null}
