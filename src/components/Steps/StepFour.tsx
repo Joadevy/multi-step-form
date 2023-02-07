@@ -28,13 +28,6 @@ export const StepFour: FC<props> = ({
   const submitUserData = (e: any) => {
     e.preventDefault();
 
-    // checking if value of first name and last name is empty show error else take to step 2
-    // if (!isValid(values.name) || !isValid(values.phone) || !isValid(values.email)) {
-    //   setError(true);
-    // } else {
-    //   nextStep();
-    // }
-
     if (userData.plan) {
       nextStep();
     }

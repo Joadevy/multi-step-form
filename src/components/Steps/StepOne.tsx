@@ -25,17 +25,10 @@ const validNameRegex = new RegExp(/^[a-zA-Z]+ ?[a-zA-Z]+$/);
 
 export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
   const [error, setError] = useState<Set<string>>(new Set());
+
   const submitFormData = (e: any) => {
     e.preventDefault();
-
-    // checking if value of first name and last name is empty show error else take to step 2
-    // if (!isValid(values.name) || !isValid(values.phone) || !isValid(values.email)) {
-    //   setError(true);
-    // } else {
-    //   nextStep();
-    // }
-
-    nextStep();
+    if (!error.size) nextStep();
   };
 
   const validateMail = () => {
@@ -112,11 +105,19 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               className="text-p-marine-blue font-medium text-base lg:text-sm flex flex-col gap-1"
               htmlFor="name"
             >
-              Name
+              <div className="flex justify-between">
+                <p>Name</p>
+
+                {error.has("name") ? (
+                  <p className="text-p-strawberry-red">
+                    Please enter a valid name
+                  </p>
+                ) : null}
+              </div>
               <input
                 required
                 className={
-                  "rounded-sm  lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10 " +
+                  "rounded-sm  lg:rounded-md border border-n-light-gray p-1 lg:p-2 lg:h-10 " +
                   (error.has("name")
                     ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
                     : "")
@@ -134,11 +135,19 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               className="text-p-marine-blue font-medium text-base lg:text-sm flex flex-col gap-1"
               htmlFor="email"
             >
-              Email Address
+              <div className="flex justify-between">
+                <p>Email</p>
+
+                {error.has("email") ? (
+                  <p className="text-p-strawberry-red">
+                    Please enter a valid email
+                  </p>
+                ) : null}
+              </div>
               <input
                 required
                 className={
-                  "rounded-sm lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10 " +
+                  "rounded-sm lg:rounded-md border border-n-light-gray p-1 lg:p-2 lg:h-10 " +
                   (error.has("email")
                     ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
                     : "")
@@ -156,11 +165,19 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               className="text-p-marine-blue font-medium text-base lg:text-sm flex flex-col gap-1"
               htmlFor="phone"
             >
-              Phone Number
+              <div className="flex justify-between">
+                <p>Phone</p>
+
+                {error.has("phone") ? (
+                  <p className="text-p-strawberry-red">
+                    Please enter a valid phone number
+                  </p>
+                ) : null}
+              </div>
               <input
                 required
                 className={
-                  "rounded-sm lg:rounded-md border-2 border-n-light-gray p-1 lg:p-2 lg:h-10 " +
+                  "rounded-sm lg:rounded-md border border-n-light-gray p-1 lg:p-2 lg:h-10 " +
                   (error.has("phone")
                     ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
                     : "")

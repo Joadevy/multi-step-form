@@ -24,38 +24,11 @@ export const Form = () => {
     name: "",
     email: "",
     phone: "",
-    plan: "",
+    plan: "arcade",
     pricePlan: 0,
     planDuration: "monthly",
     addsOn: new Map(),
   });
-
-  // const handlePrice = () => {
-  // switchPrices(userData.plan, userData.planDuration);
-  // };
-
-  //   const formik = useFormik({
-  //     initialValues: {
-  //       name: "",
-  //       email: "",
-  //       phone: "",
-  //     },
-  //     validationSchema: Yup.object().shape({
-  //       name: Yup.string().min(3).required("Name is required"),
-  //       email: Yup.string()
-  //         .min(5)
-  //         .required("Email is required")
-  //         .email("Invalid email"),
-  //       phone: Yup.string().required("Phone is required"),
-  //     }),
-  //     onSubmit: () => {
-  //       if (activeStep === steps.length - 1) {
-  //         console.log("last step");
-  //       } else {
-  //         setActiveStep((prevStep) => prevStep + 1);
-  //       }
-  //     },
-  //   });
 
   const handleInputData = (input: any) => (e: any) => {
     const { value } = e.target;
