@@ -30,7 +30,7 @@ export const Plan: FC<props> = ({
     <button
       className={
         "border border-n-light-gray rounded-md p-4 flex lg:flex-col gap-4 lg:gap-2 items-center hover:opacity-70 lg:w-1/3 " +
-        (active ? " border-p-purplish-blue" : "")
+        (active ? " border-p-purplish-blue bg-n-alabaster" : "")
       }
       onClick={(e) => togglePlan(e)}
     >

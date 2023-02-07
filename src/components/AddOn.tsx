@@ -31,7 +31,7 @@ export const AddOn: FC<props> = ({
     <div
       className={
         "relative w-full border border-n-light-gray rounded-md p-3 lg:px-6 lg:py-3 flex gap-4 items-center hover:opacity-70 " +
-        (checked ? " border-p-purplish-blue" : "")
+        (checked ? " border-p-purplish-blue bg-n-alabaster" : "")
       }
     >
       <div className="flex gap-4">

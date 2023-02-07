@@ -88,7 +88,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
   };
 
   return (
-    <div className="lg:flex lg:my-10 lg:mx-48 gap-5">
+    <div className="lg:flex lg:my-10 lg:mx-48 gap-5 lg:p-4 lg:shadow-md bg-white lg:rounded-lg">
       <StepHeader active={1} steps={[1, 2, 3, 4]} />
       <div className="min-h-screen lg:w-[400px] lg:h-[500px] 2xl:w-[700px] 2xl:h-[800px] lg:min-h-0 relative ">
         <Container>
@@ -105,11 +105,11 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               className="text-p-marine-blue font-medium text-base lg:text-sm flex flex-col gap-1"
               htmlFor="name"
             >
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <p>Name</p>
 
                 {error.has("name") ? (
-                  <p className="text-p-strawberry-red">
+                  <p className="text-xs lg:text-base text-p-strawberry-red">
                     Please enter a valid name
                   </p>
                 ) : null}
@@ -135,11 +135,11 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               className="text-p-marine-blue font-medium text-base lg:text-sm flex flex-col gap-1"
               htmlFor="email"
             >
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <p>Email</p>
 
                 {error.has("email") ? (
-                  <p className="text-p-strawberry-red">
+                  <p className="text-xs lg:text-base text-p-strawberry-red">
                     Please enter a valid email
                   </p>
                 ) : null}
@@ -165,11 +165,11 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               className="text-p-marine-blue font-medium text-base lg:text-sm flex flex-col gap-1"
               htmlFor="phone"
             >
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <p>Phone</p>
 
                 {error.has("phone") ? (
-                  <p className="text-p-strawberry-red">
+                  <p className="text-xs lg:text-base text-p-strawberry-red">
                     Please enter a valid phone number
                   </p>
                 ) : null}

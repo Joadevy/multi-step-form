@@ -45,7 +45,7 @@ export const StepFour: FC<props> = ({
   };
 
   return (
-    <div className="lg:flex lg:my-10 lg:mx-48 gap-5">
+    <div className="lg:flex lg:my-10 lg:mx-48 gap-5 lg:p-4 lg:shadow-md bg-white lg:rounded-lg">
       <StepHeader active={4} steps={[1, 2, 3, 4]} />
       <div className="min-h-screen lg:w-[400px] lg:h-[500px] 2xl:w-[700px] 2xl:h-[800px]  lg:min-h-0 relative ">
         <Container>
@@ -65,7 +65,7 @@ export const StepFour: FC<props> = ({
                     userData.plan
                   )} (${capitalizeFirst(userData.planDuration)})`}</h3>
                   <button onClick={backToPlan}>
-                    <p className="underline text-n-cool-gray text-lg lg:text-base">
+                    <p className="underline text-n-cool-gray text-lg lg:text-base hover:text-p-purplish-blue transition-colors">
                       Change
                     </p>
                   </button>

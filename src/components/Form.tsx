@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 
 import { StepOne } from "./Steps/StepOne";
 import { StepTwo } from "./Steps/StepTwo";

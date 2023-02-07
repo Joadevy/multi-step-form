@@ -59,7 +59,7 @@ export const StepTwo: FC<props> = ({
   };
 
   return (
-    <div className="lg:flex lg:my-10 lg:mx-48 gap-5">
+    <div className="lg:flex lg:my-10 lg:mx-48 gap-5 lg:p-4 lg:shadow-md bg-white lg:rounded-lg">
       <StepHeader active={2} steps={[1, 2, 3, 4]} />
       <div className="min-h-screen lg:w-[400px] lg:h-[500px] 2xl:w-[700px] 2xl:h-[800px] lg:min-h-0 relative ">
         <Container>
@@ -101,7 +101,7 @@ export const StepTwo: FC<props> = ({
                 type={userData.planDuration}
               />
             </div>
-            <div className="flex gap-4 absolute bottom-28 self-center">
+            <div className="flex lg:items-center lg:justify-center lg:p-2 lg:rounded-md gap-4 absolute bottom-28 self-center bg-n-alabaster lg:w-full">
               <p
                 className={
                   userData.planDuration === "monthly"
