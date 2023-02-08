@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import { Plan } from "../Plan";
 import arcadeImg from "../../assets/images/icon-arcade.svg";
