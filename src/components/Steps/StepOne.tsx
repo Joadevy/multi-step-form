@@ -122,6 +122,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
                     ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
                     : "")
                 }
+                data-testid={"input-name"}
                 defaultValue={userData.name}
                 id="name"
                 placeholder="e.g. Stephen King"
@@ -152,6 +153,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
                     ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
                     : "")
                 }
+                data-testid={"input-email"}
                 defaultValue={userData.email}
                 id="email"
                 placeholder="e.g. stephenking@lorem.com"

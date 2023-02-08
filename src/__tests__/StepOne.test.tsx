@@ -1,5 +1,5 @@
 import { test, describe, expect, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 import { StepOne } from "../components/Steps/StepOne";
 import { NextButton } from "../components/Buttons/NextButton";
@@ -35,7 +35,7 @@ describe("Step One", async () => {
   });
 
   test("should show the correct title", async () => {
-    expect(screen.getByText("Personal info")).toBeDefined();
+    expect(screen.getByText(/personal info/i)).toBeDefined();
   });
 
   test("should show a button for continue to the next step", async () => {
@@ -44,9 +44,21 @@ describe("Step One", async () => {
     expect(nextBtn.value).toBe("Next Step");
   });
 
-  test("Couldn't pass to 2nd step before fill the fields", async () => {
+  test("Couldn't pass to 2nd step before fill the name field", async () => {
     const nextBtn = await screen.findByTestId("next-btn");
+    const inputName = await screen.findByTestId("input-name");
 
-    // expect(nextBtn.value).toBe("Next Ste");/
+    fireEvent.click(nextBtn);
+
+    expect(fireEvent.focus(inputName));
+  });
+
+  test("should show an error message if type an incorrect name", async () => {
+    const inputName = await screen.findByTestId("input-name");
+
+    fireEvent.click(inputName);
+    fireEvent.focusOut(inputName);
+
+    expect(screen.getByText(/please enter a valid name/i)).toBeDefined();
   });
 });
