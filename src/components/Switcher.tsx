@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import "./Switcher.css";
 
 type props = {
@@ -8,7 +8,7 @@ type props = {
 const Switcher: FC<props> = ({ handlerStatus }) => {
   return (
     <label className="switch">
-      <input type="checkbox" onChange={handlerStatus} />
+      <input data-testid={"switcher"} type="checkbox" onClick={handlerStatus} />
       <span className="slider round" />
     </label>
   );
