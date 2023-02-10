@@ -6,17 +6,17 @@ import { StepTwo } from "../../src/components/Steps/StepTwo";
 import { User } from "../../src/components/Form";
 
 describe("Step Two", async () => {
-  test("should show the pro plan as active", async () => {
-    const userData: User = {
-      name: "",
-      email: "",
-      phone: "",
-      plan: "arcade",
-      pricePlan: 0,
-      planDuration: "monthly",
-      addsOn: new Map(),
-    };
+  const userData: User = {
+    name: "",
+    email: "",
+    phone: "",
+    plan: "arcade",
+    pricePlan: 0,
+    planDuration: "monthly",
+    addsOn: new Map(),
+  };
 
+  beforeEach(() => {
     const handleUser = (x: string, y: string | number) => {
       // @ts-ignore
       userData[x] = y;
@@ -30,7 +30,9 @@ describe("Step Two", async () => {
         userData={userData}
       />
     );
+  });
 
+  test("should show the pro plan as active", async () => {
     const planPro: HTMLInputElement = await screen.findByTestId("plan-Pro");
 
     await userEvent.click(planPro);
@@ -39,64 +41,16 @@ describe("Step Two", async () => {
   });
 
   test("should show the advanced plan as active", async () => {
-    const userData: User = {
-      name: "",
-      email: "",
-      phone: "",
-      plan: "arcade",
-      pricePlan: 0,
-      planDuration: "monthly",
-      addsOn: new Map(),
-    };
-
-    const handleUser = (x: string, y: string | number) => {
-      // @ts-ignore
-      userData[x] = y;
-    };
-
-    render(
-      <StepTwo
-        handleUserData={handleUser}
-        nextStep={() => {}}
-        prevStep={() => {}}
-        userData={userData}
-      />
-    );
-
-    const planPro: HTMLInputElement = await screen.findByTestId(
+    const planAdvanced: HTMLInputElement = await screen.findByTestId(
       "plan-Advanced"
     );
 
-    await userEvent.click(planPro);
+    await userEvent.click(planAdvanced);
 
     expect(userData.plan).toBe("advanced");
   });
 
   test("should show the yearly prices when switch to", async () => {
-    const userData: User = {
-      name: "",
-      email: "",
-      phone: "",
-      plan: "arcade",
-      pricePlan: 0,
-      planDuration: "monthly",
-      addsOn: new Map(),
-    };
-
-    const handleUser = (x: string, y: string | number) => {
-      // @ts-ignore
-      userData[x] = y;
-    };
-
-    render(
-      <StepTwo
-        handleUserData={handleUser}
-        nextStep={() => {}}
-        prevStep={() => {}}
-        userData={userData}
-      />
-    );
-
     const switcher: HTMLInputElement = await screen.findByTestId("switcher");
 
     await userEvent.click(switcher);
