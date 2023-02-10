@@ -37,13 +37,14 @@ export const AddOn: FC<props> = ({
       <div className="flex gap-4">
         <input
           autoComplete="off"
-          checked={checked}
           className="w-6 h-6 self-center cursor-pointer"
+          data-testid={`addon-${title}`}
+          defaultChecked={checked}
           id=""
           name=""
           type="checkbox"
-          onChange={(e) => {
-            toggleCheck(e.target.checked);
+          onClick={(e) => {
+            toggleCheck(e.currentTarget.checked);
           }}
           onKeyPress={(e) => {
             e.preventDefault();
