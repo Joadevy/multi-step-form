@@ -184,6 +184,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
                     ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
                     : "")
                 }
+                data-testid={"input-phone"}
                 defaultValue={userData.phone}
                 id="phone"
                 placeholder="e.g. +1 234 567 8910"

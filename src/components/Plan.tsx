@@ -32,6 +32,7 @@ export const Plan: FC<props> = ({
         "border border-n-light-gray rounded-md p-4 flex lg:flex-col gap-4 lg:gap-2 items-center hover:opacity-70 lg:w-1/3 " +
         (active ? " border-p-purplish-blue bg-n-alabaster" : "")
       }
+      data-testid={`plan-${name}`}
       onClick={(e) => togglePlan(e)}
     >
       <div className="lg:w-14 lg:h-14 lg:mb-5 lg:self-start">
