@@ -2,8 +2,8 @@ import { test, expect } from "vitest";
 import { render, waitFor, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { NextButton } from "../components/Buttons/NextButton";
-import Switcher from "../components/Switcher";
+import { NextButton } from "../../src/components/Buttons/NextButton";
+import Switcher from "../../src/components/Switcher";
 
 test("should show a 'Next Step' button", async () => {
   const step = render(<NextButton bgColor="" label="Next Step" />);

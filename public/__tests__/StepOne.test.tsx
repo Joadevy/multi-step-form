@@ -1,7 +1,7 @@
 import { test, describe, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import { StepOne } from "../components/Steps/StepOne";
+import { StepOne } from "../../src/components/Steps/StepOne";
 
 describe("Step One", async () => {
   beforeEach(() => {

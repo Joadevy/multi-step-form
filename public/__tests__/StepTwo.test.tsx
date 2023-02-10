@@ -2,8 +2,8 @@ import { test, describe, expect, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { StepTwo } from "../components/Steps/StepTwo";
-import { User } from "../components/Form";
+import { StepTwo } from "../../src/components/Steps/StepTwo";
+import { User } from "../../src/components/Form";
 
 describe("Step Two", async () => {
   test("should show the pro plan as active", async () => {
