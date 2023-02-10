@@ -6,11 +6,11 @@ import { StepHeader } from "./StepHeader";
 
 export const StepFive: FC = () => {
   return (
-    <div className="lg:flex lg:my-10 lg:mx-48 gap-5 lg:p-4 lg:shadow-md bg-white lg:rounded-lg">
+    <div className="max-h-screen lg:flex lg:my-10 lg:mx-48 gap-5 lg:p-4 lg:shadow-md bg-white lg:rounded-lg">
       <StepHeader active={4} steps={[1, 2, 3, 4]} />
 
       <div
-        className="flex flex-col rounded-xl mx-5 my-28 p-8 bg-white 
+        className="flex flex-col rounded-xl mx-5 my-[15vh] p-8 bg-white 
        lg:mx-0 lg:my-0 lg:p-0 lg:w-[400px] lg:h-[500px] 2xl:w-[700px] 2xl:h-[800px]  lg:min-h-0 relative lg:items-center lg:justify-center "
       >
         <header className="flex flex-col mt-10 gap-3 items-center lg:px-14 lg:mt-0">

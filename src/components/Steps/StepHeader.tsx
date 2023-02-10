@@ -9,7 +9,7 @@ const stepDescription = ["YOUR INFO", "SELECT PLAN", "ADDS-ON", "SUMMARY"];
 
 export const StepHeader: FC<props> = ({ steps, active }) => {
   return (
-    <header className="h-48 w-full absolute lg:z-50 lg:w-[275px] 2xl:w-[400px] lg:relative lg:h-auto top-0 -z-10 bg-mobileHero lg:bg-desktopHero flex bg-cover lg:bg-contain bg-no-repeat">
+    <header className="h-[15vh] w-full absolute lg:z-50 lg:w-[275px] 2xl:w-[400px] lg:relative lg:h-auto top-0 -z-10 bg-mobileHero lg:bg-desktopHero flex bg-cover lg:bg-contain bg-no-repeat">
       <ul className="flex lg:flex-col gap-4 lg:gap-8 2xl-gap-10 w-full justify-center lg:justify-start pt-10 lg:pl-10 text-white">
         {steps.map((step) => (
           <li key={step} className="lg:flex lg:gap-2 lg:items-center">

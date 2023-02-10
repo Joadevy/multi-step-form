@@ -88,9 +88,9 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
   };
 
   return (
-    <div className="lg:flex lg:my-10 lg:mx-48 gap-5 lg:p-4 lg:shadow-md bg-white lg:rounded-lg">
+    <div className="max-h-screen lg:flex lg:my-10 lg:mx-48 gap-5 lg:p-4 lg:shadow-md bg-white lg:rounded-lg">
       <StepHeader active={1} steps={[1, 2, 3, 4]} />
-      <div className="min-h-screen lg:w-[400px] lg:h-[500px] 2xl:w-[700px] 2xl:h-[800px] lg:min-h-0 relative ">
+      <div className="lg:w-[400px] lg:h-[500px] 2xl:w-[700px] 2xl:h-[800px] lg:min-h-0 relative ">
         <Container>
           <Header
             desc="Please provide your name, email adress, and phone number."
@@ -98,7 +98,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
           />
 
           <form
-            className="flex flex-col gap-4 lg:gap-5 mt-6 lg:mb-24"
+            className="flex flex-col gap-8 lg:gap-5 mt-8 lg:mt-6 lg:mb-24"
             onSubmit={submitFormData}
           >
             <label
@@ -117,7 +117,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               <input
                 required
                 className={
-                  "rounded-sm  lg:rounded-md border border-n-light-gray p-1 lg:p-2 lg:h-10 " +
+                  "rounded-sm text-lg lg:text-base lg:rounded-md border border-n-light-gray p-2 lg:h-10 " +
                   (error.has("name")
                     ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
                     : "")
@@ -148,7 +148,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               <input
                 required
                 className={
-                  "rounded-sm lg:rounded-md border border-n-light-gray p-1 lg:p-2 lg:h-10 " +
+                  "rounded-sm text-lg lg:text-base lg:rounded-md border border-n-light-gray p-2 lg:h-10 " +
                   (error.has("email")
                     ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
                     : "")
@@ -168,7 +168,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               htmlFor="phone"
             >
               <div className="flex justify-between items-center">
-                <p className="lg:text-sm">Phone</p>
+                <p className="text-base lg:text-sm">Phone</p>
 
                 {error.has("phone") ? (
                   <p className="text-xs lg:text-sm text-p-strawberry-red">
@@ -179,7 +179,7 @@ export const StepOne: FC<props> = ({ userData, nextStep, handleUserData }) => {
               <input
                 required
                 className={
-                  "rounded-sm lg:rounded-md border border-n-light-gray p-1 lg:p-2 lg:h-10 " +
+                  "rounded-sm text-lg lg:text-base lg:rounded-md border border-n-light-gray p-2 lg:h-10 " +
                   (error.has("phone")
                     ? " border-p-strawberry-red outline-none focus:border-n-light-gray"
                     : "")

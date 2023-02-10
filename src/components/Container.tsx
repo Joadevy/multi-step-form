@@ -6,9 +6,7 @@ type props = {
 
 export const Container: FC<props> = ({ children }) => {
   return (
-    <main className="flex flex-col rounded-xl mx-5 lg:mx-0 my-28 lg:my-14 p-8 lg:p-0  ">
-      {/* <main className="flex flex-col rounded-xl mx-5 lg:mx-0 lg:mr-5 lg:ml-96 my-28 p-8 bg-white"> */}
-
+    <main className="h-[84vh] lg:h-28 flex flex-col rounded-xl mx-5 lg:mx-0 mt-[15vh] lg:my-14 p-8 lg:p-0  ">
       {children}
     </main>
   );
