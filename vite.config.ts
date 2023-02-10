@@ -16,7 +16,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   publicDir: false,
-  // root: "src",
+  root: "./",
   test: {
     environment: "happy-dom",
     globals: true,
