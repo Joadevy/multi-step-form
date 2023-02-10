@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 
 import { NextButton } from "../../src/components/Buttons/NextButton";
 import Switcher from "../../src/components/Switcher";
+import { AddOn } from "../../src/components/AddOn";
 
 test("should show a 'Next Step' button", async () => {
   const step = render(<NextButton bgColor="" label="Next Step" />);
@@ -28,5 +29,35 @@ test("Should change the value in the switcher", async () => {
 
   await waitFor(() => {
     expect(value).toBe(true);
+  });
+});
+
+test("Should change the value of the checked", async () => {
+  let testMap = new Map<string, number>();
+
+  const mockHandleAdd = (title: string, price: number) => {
+    testMap.set(title, price);
+  };
+
+  render(
+    <AddOn
+      checked={true}
+      desc="test"
+      handleAdd={mockHandleAdd}
+      handleRemove={() => {}}
+      price={0}
+      title="title-test"
+      type="test"
+    />
+  );
+
+  const addOnOnlineService: HTMLInputElement = await screen.findByTestId(
+    "addon-title-test"
+  );
+
+  await userEvent.click(addOnOnlineService);
+
+  await waitFor(() => {
+    expect(Array.from(testMap.keys())).toContain("title-test");
   });
 });
