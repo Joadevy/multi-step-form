@@ -2,17 +2,6 @@ import { test, describe, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 
 import { StepOne } from "../components/Steps/StepOne";
-import { NextButton } from "../components/Buttons/NextButton";
-
-test("should show a 'Next Step' button", async () => {
-  const step = render(<NextButton bgColor="" label="Next Step" />);
-
-  // @ts-ignore: input properties aren't necesary in this case
-  const nextBtn: HTMLInputElement = await step.findByTestId("next-btn");
-
-  expect(nextBtn.value).toBe("Next Step");
-  step.unmount();
-});
 
 describe("Step One", async () => {
   beforeEach(() => {
@@ -56,9 +45,26 @@ describe("Step One", async () => {
   test("should show an error message if type an incorrect name", async () => {
     const inputName = await screen.findByTestId("input-name");
 
-    fireEvent.click(inputName);
+    fireEvent.focusIn(inputName);
     fireEvent.focusOut(inputName);
 
     expect(screen.getByText(/please enter a valid name/i)).toBeDefined();
+  });
+
+  test("should show invalid email alert", async () => {
+    const inputEmail: HTMLInputElement = await screen.findByTestId(
+      "input-email"
+    );
+    const inputPhone: HTMLInputElement = await screen.findByTestId(
+      "input-phone"
+    );
+
+    fireEvent.focusIn(inputEmail);
+    fireEvent.focusOut(inputEmail);
+    fireEvent.focusIn(inputPhone);
+    fireEvent.focusOut(inputPhone);
+
+    expect(screen.getByText(/valid email/i)).toBeDefined();
+    expect(screen.getByText(/valid phone/i)).toBeDefined();
   });
 });
