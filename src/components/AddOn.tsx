@@ -25,7 +25,7 @@ export const AddOn: FC<props> = ({
     isChecked
       ? handleAdd(title.toLowerCase(), price)
       : handleRemove(title.toLowerCase(), price);
-  }, [isChecked]);
+  }, [isChecked]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div
@@ -33,6 +33,7 @@ export const AddOn: FC<props> = ({
         "relative w-full border border-n-light-gray rounded-md p-3 lg:px-6 lg:py-3 flex gap-4 items-center hover:opacity-70 " +
         (checked ? " border-p-purplish-blue bg-n-alabaster" : "")
       }
+      data-testid={`addon-${title}-container`}
     >
       <div className="flex gap-4">
         <input
@@ -43,12 +44,10 @@ export const AddOn: FC<props> = ({
           id=""
           name=""
           type="checkbox"
-          onClick={(e) => {
-            toggleCheck(e.currentTarget.checked);
-          }}
+          onClick={() => toggleCheck(!checked)}
           onKeyPress={(e) => {
             e.preventDefault();
-            toggleCheck(!isChecked);
+            toggleCheck(!checked);
           }}
         />
         <div className="w-8/12 sm:w-full text-left">
