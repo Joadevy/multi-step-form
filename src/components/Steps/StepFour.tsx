@@ -112,7 +112,10 @@ export const StepFour: FC<props> = ({
                       : "per year"
                   })`}</h3>
                 </div>
-                <p className="font-bold text-p-purplish-blue text-xl lg:text-lg mr-2">
+                <p
+                  className="font-bold text-p-purplish-blue text-xl lg:text-lg mr-2"
+                  data-testid={"total-price"}
+                >
                   {userData.planDuration === "monthly"
                     ? `$${getTotalPrice()}/mo`
                     : `$${getTotalPrice()}/yr`}
