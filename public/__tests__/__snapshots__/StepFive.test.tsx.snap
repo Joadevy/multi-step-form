@@ -1,0 +1,145 @@
+// Vitest Snapshot v1
+
+exports[`Step Five > should render correctly with the thanks information 1`] = `
+<DocumentFragment>
+  <div
+    class="max-h-screen lg:flex lg:my-10 lg:mx-48 gap-5 lg:p-4 lg:shadow-md bg-white lg:rounded-lg"
+  >
+    <header
+      class="h-[15vh] w-full absolute lg:z-50 lg:w-[275px] 2xl:w-[400px] lg:relative lg:h-auto top-0 -z-10 bg-mobileHero lg:bg-desktopHero flex bg-cover lg:bg-contain bg-no-repeat"
+    >
+      <ul
+        class="flex lg:flex-col gap-4 lg:gap-8 2xl-gap-10 w-full justify-center lg:justify-start pt-10 lg:pl-10 text-white"
+      >
+        <li
+          class="lg:flex lg:gap-2 lg:items-center"
+        >
+          <div
+            class="rounded-full border border-white h-9 w-9 lg:h-8 lg:w-8 flex justify-center items-center "
+          >
+            <p>
+              1
+            </p>
+          </div>
+          <div
+            class="hidden lg:block text-white text-sm lg:text-xs"
+          >
+            <p
+              class=" text-p-pastel-blue"
+            >
+              STEP 1
+            </p>
+            <p
+              class="font-bold"
+            >
+              YOUR INFO
+            </p>
+          </div>
+        </li>
+        <li
+          class="lg:flex lg:gap-2 lg:items-center"
+        >
+          <div
+            class="rounded-full border border-white h-9 w-9 lg:h-8 lg:w-8 flex justify-center items-center "
+          >
+            <p>
+              2
+            </p>
+          </div>
+          <div
+            class="hidden lg:block text-white text-sm lg:text-xs"
+          >
+            <p
+              class=" text-p-pastel-blue"
+            >
+              STEP 2
+            </p>
+            <p
+              class="font-bold"
+            >
+              SELECT PLAN
+            </p>
+          </div>
+        </li>
+        <li
+          class="lg:flex lg:gap-2 lg:items-center"
+        >
+          <div
+            class="rounded-full border border-white h-9 w-9 lg:h-8 lg:w-8 flex justify-center items-center "
+          >
+            <p>
+              3
+            </p>
+          </div>
+          <div
+            class="hidden lg:block text-white text-sm lg:text-xs"
+          >
+            <p
+              class=" text-p-pastel-blue"
+            >
+              STEP 3
+            </p>
+            <p
+              class="font-bold"
+            >
+              ADDS-ON
+            </p>
+          </div>
+        </li>
+        <li
+          class="lg:flex lg:gap-2 lg:items-center"
+        >
+          <div
+            class="rounded-full border border-white h-9 w-9 lg:h-8 lg:w-8 flex justify-center items-center bg-white text-p-marine-blue"
+          >
+            <p>
+              4
+            </p>
+          </div>
+          <div
+            class="hidden lg:block text-white text-sm lg:text-xs"
+          >
+            <p
+              class=" text-p-pastel-blue"
+            >
+              STEP 4
+            </p>
+            <p
+              class="font-bold"
+            >
+              SUMMARY
+            </p>
+          </div>
+        </li>
+      </ul>
+    </header>
+    <div
+      class="flex flex-col rounded-xl mx-5 my-[15vh] p-8 bg-white 
+       lg:mx-0 lg:my-0 lg:p-0 lg:w-[400px] lg:h-[500px] 2xl:w-[700px] 2xl:h-[800px]  lg:min-h-0 relative lg:items-center lg:justify-center "
+    >
+      <header
+        class="flex flex-col mt-10 gap-3 items-center lg:px-14 lg:mt-0"
+      >
+        <div
+          class="w-20 h-20 mb-3"
+        >
+          <img
+            alt="Thanks for your order!"
+            src="/src/assets/images/icon-thank-you.svg"
+          />
+        </div>
+        <h2
+          class="font-bold text-3xl text-p-marine-blue"
+        >
+          Thank you!
+        </h2>
+        <p
+          class="text-n-cool-gray text-xl font-normal text-center lg:text-base"
+        >
+          Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.
+        </p>
+      </header>
+    </div>
+  </div>
+</DocumentFragment>
+`;
