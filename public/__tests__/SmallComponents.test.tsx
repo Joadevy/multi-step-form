@@ -32,7 +32,7 @@ test("Should change the value in the switcher", async () => {
   });
 });
 
-test("Should change the value of the checked", async () => {
+test("Should change the value of the checked & add to the addsOn Map", async () => {
   let testMap = new Map<string, number>();
 
   const mockHandleAdd = (title: string, price: number) => {
@@ -41,7 +41,7 @@ test("Should change the value of the checked", async () => {
 
   render(
     <AddOn
-      checked={true}
+      checked={false}
       desc="test"
       handleAdd={mockHandleAdd}
       handleRemove={() => {}}
@@ -57,7 +57,37 @@ test("Should change the value of the checked", async () => {
 
   await userEvent.click(addOnOnlineService);
 
-  await waitFor(() => {
-    expect(Array.from(testMap.keys())).toContain("title-test");
-  });
+  await waitFor(() =>
+    expect(Array.from(testMap.keys())).toContain("title-test")
+  );
 });
+
+// test("UI TEST: should show the container with border blue after user clicks on", async () => {
+//   render(
+//     <AddOn
+//       checked={false}
+//       desc="test"
+//       handleAdd={() => {}}
+//       handleRemove={() => {}}
+//       price={0}
+//       title="title-test"
+//       type="test"
+//     />
+//   );
+
+//   const addOnOnlineService: HTMLInputElement = await screen.findByTestId(
+//     "addon-title-test"
+//   );
+
+//   await userEvent.click(addOnOnlineService);
+
+//   const testContainer: HTMLDivElement = await screen.findByTestId(
+//     "addon-title-test-container"
+//   );
+
+//   await waitFor(() => {
+//     expect(Array.from(testContainer.classList)).toContain(
+//       "border-p-purplish-blue"
+//     );
+//   });
+// });
