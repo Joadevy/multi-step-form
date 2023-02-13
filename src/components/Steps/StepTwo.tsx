@@ -111,7 +111,10 @@ export const StepTwo: FC<props> = ({
               >
                 Monthly
               </p>
-              <Switcher handlerStatus={handlePlanDuration} />
+              <Switcher
+                checked={userData.planDuration == "yearly"}
+                handlerStatus={handlePlanDuration}
+              />
               <p
                 className={
                   userData.planDuration === "yearly"
