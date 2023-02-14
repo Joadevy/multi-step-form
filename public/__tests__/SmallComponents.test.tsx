@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import { render, waitFor, screen } from "@testing-library/react";
+import { render, waitFor, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { NextButton } from "../../src/components/Buttons/NextButton";
@@ -62,32 +62,59 @@ test("Should change the value of the checked & add to the addsOn Map", async () 
   );
 });
 
-// test("UI TEST: should show the container with border blue after user clicks on", async () => {
-//   render(
-//     <AddOn
-//       checked={false}
-//       desc="test"
-//       handleAdd={() => {}}
-//       handleRemove={() => {}}
-//       price={0}
-//       title="title-test"
-//       type="test"
-//     />
+// test("UI TEST: should show the container with a blue border after user clicks on", async () => {
+//   // render(
+//   //   <AddOn
+//   //     checked={false}
+//   //     desc="test"
+//   //     handleAdd={() => {}}
+//   //     handleRemove={() => {}}
+//   //     price={0}
+//   //     title="title-test"
+//   //     type="test"
+//   //   />
+//   // );
+
+//   // await waitFor(() => {
+//   //   expect(Array.from(testContainer.classList)).toContain(
+//   //     "border-p-purplish-blue"
+//   //   );
+//   // });
+
+//   act(() => {
+//     render(
+//       <AddOn
+//         checked={false}
+//         desc="test"
+//         handleAdd={() => {}}
+//         handleRemove={() => {}}
+//         price={0}
+//         title="title-test"
+//         type="test"
+//       />
+//     );
+//   });
+
+//   const testContainer: HTMLDivElement = await screen.findByTestId(
+//     "addon-title-test-container"
 //   );
 
 //   const addOnOnlineService: HTMLInputElement = await screen.findByTestId(
 //     "addon-title-test"
 //   );
 
-//   await userEvent.click(addOnOnlineService);
-
-//   const testContainer: HTMLDivElement = await screen.findByTestId(
-//     "addon-title-test-container"
-//   );
+//   // expect(state).toBeNull();
+//   act(() => {
+//     userEvent.click(addOnOnlineService);
+//     addOnOnlineService.dispatchEvent(
+//       new CustomEvent("change", { bubbles: true })
+//     );
+//     // txtConfirmPassword.setAttribute("value", "1234567");
+//     // txtConfirmPassword.dispatchEvent(
+//     // new CustomEvent("change", { bubbles: true })
+//   });
 
 //   await waitFor(() => {
-//     expect(Array.from(testContainer.classList)).toContain(
-//       "border-p-purplish-blue"
-//     );
+//     expect(testContainer.className).toContain("border-p-purplish-blue");
 //   });
 // });
