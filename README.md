@@ -4,7 +4,7 @@
 
 ## Overview
 » It's a solution for the [frontend mentor code challenge](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ) that I did to practice my React abilities and at the same time to improve my handling of tailwind CSS and typescript.   
-  This time I worked with a responsive formulary app when I had to implement different techniques to manage user's data and display several steps correctly. At the end I added a suit of unit tests to guarantee that components works just fine.
+  This time I worked with a responsive formulary app when I had to implement different techniques to manage user's data and display several steps correctly. At the end I added a suit of unit tests to guarantee components works just fine.
 
 » Technologies used in this challenge:
 * React
